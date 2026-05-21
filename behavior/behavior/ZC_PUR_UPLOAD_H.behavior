@@ -1,1 +1,25 @@
+projection;
+strict ( 2 );
 
+define behavior for ZC_PUR_UPLOAD_H
+{
+  use create;
+  use update;
+  use delete;
+
+  use action uploadExcel;
+  use action submitForApproval;
+  use action approve;
+  use action reject;
+  use action createPO;
+
+  use association _Items { create; }
+}
+
+define behavior for ZC_PUR_UPLOAD_I
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
