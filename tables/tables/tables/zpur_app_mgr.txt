@@ -1,1 +1,31 @@
+@EndUserText.label : 'approve manager'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zpur_app_mgr {
 
+  key mandt        : mandt not null;
+  key app_level    : abap.dec(2,0) not null;
+  key manager_user : syuname not null;
+  manager_mail     : ad_smtpadr;
+  active           : abap.char(1);
+
+}
+
+
+
+
+
+
+@EndUserText.label : 'PO Upload Number Range'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zpur_upload_no {
+
+  key client : abap.clnt not null;
+  last_no    : abap.numc(10);
+
+}
