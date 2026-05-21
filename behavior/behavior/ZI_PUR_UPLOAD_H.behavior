@@ -1,1 +1,88 @@
+managed implementation in class zbp_pur_upload_h unique;
+strict ( 2 );
 
+define behavior for ZI_PUR_UPLOAD_H alias Header
+persistent table zpur_upload_h
+lock master
+authorization master ( instance )
+etag master UploadDate
+{
+  mapping for zpur_upload_h corresponding
+  {
+    UploadUuid   = upload_uuid;
+    UploadNo     = upload_no;
+    UploadedBy   = uploaded_by;
+    UploadDate   = upload_date;
+    UploadTime   = upload_time;
+    FileName     = file_name;
+    Status       = status;
+    Manager      = manager;
+    RejectReason = reject_reason;
+    PoNumber     = po_number;
+    FileContent  = file_content;
+    MimeType     = mime_type;
+  }
+
+  field ( readonly, numbering : managed ) UploadUuid;
+  field ( readonly ) UploadNo;
+  field ( readonly ) UploadedBy;
+  field ( readonly ) UploadDate;
+  field ( readonly ) UploadTime;
+  field ( readonly ) Status;
+  field ( readonly ) PoNumber;
+
+  create;
+  update;
+  delete;
+
+  //action uploadExcel parameter ZDUPLOAD_PAR result [1] $self;
+  //action submitForApproval result [1] $self;
+  //action approve result [1] $self;
+  //action reject parameter ZPUR_REJECT_PAR result [1] $self;
+  //action createPO result [1] $self;
+ action ( features : instance ) uploadExcel parameter ZDUPLOAD_PAR result [1] $self;
+action ( features : instance ) submitForApproval result [1] $self;
+action ( features : instance ) approve result [1] $self;
+action ( features : instance ) reject parameter ZPUR_REJECT_PAR result [1] $self;
+action ( features : instance ) createPO result [1] $self;
+
+  determination setUploadNumber  on save   { create; }
+  determination setInitialStatus on modify { create; }
+  determination setUploadedBy    on modify { create; }
+  determination processUploadedFile on modify { field FileContent; }
+
+
+  association _Items { create; }
+}
+
+define behavior for ZI_PUR_UPLOAD_I alias Item
+persistent table zpur_upload_i
+lock dependent by _Header
+authorization dependent by _Header
+{
+  mapping for zpur_upload_i corresponding
+  {
+    UploadUuid   = upload_uuid;
+    ItemNo       = item_no;
+    Vendor       = vendor;
+    Material     = material;
+    ShortText    = short_text;
+    Quantity     = quantity;
+    Unit         = unit;
+    Price        = price;
+    Currency     = currency;
+    DeliveryDate = delivery_date;
+    Plant        = plant;
+    StorageLoc   = storage_loc;
+    PoItemNo     = po_item_no;
+    ItemStatus   = item_status;
+  }
+
+  field ( readonly ) UploadUuid;
+  field ( readonly ) ItemNo;
+
+  update;
+  delete;
+
+  association _Header;
+}
