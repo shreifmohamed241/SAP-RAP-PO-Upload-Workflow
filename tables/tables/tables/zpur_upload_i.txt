@@ -1,1 +1,24 @@
+@EndUserText.label : 'PO Upload Items'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zpur_upload_i {
 
+  key client      : abap.clnt not null;
+  key upload_uuid : sysuuid_x16 not null;
+  key item_no     : abap.numc(5) not null;
+  vendor          : abap.char(10);
+  material        : abap.char(18);
+  short_text      : abap.char(40);
+  quantity        : abap.dec(13,3);
+  unit            : abap.unit(3);
+  price           : abap.dec(13,2);
+  currency        : abap.cuky;
+  delivery_date   : abap.dats;
+  plant           : abap.char(4);
+  storage_loc     : abap.char(4);
+  po_item_no      : abap.numc(5);
+  item_status     : abap.char(1);
+
+}
