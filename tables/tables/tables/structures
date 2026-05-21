@@ -1,1 +1,19 @@
+@EndUserText.label : 'STRUCYURE UPLOAD'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+define structure zdupload_par {
 
+  file_name    : abap.char(255);
+  file_content : abap.rawstring(0);
+
+}
+
+
+
+
+@EndUserText.label : 'REJECT_REASON'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+define structure zpur_reject_par {
+
+  reject_reason : abap.char(255);
+
+}
