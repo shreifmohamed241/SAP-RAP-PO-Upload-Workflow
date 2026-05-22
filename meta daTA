@@ -1,1 +1,62 @@
+@Metadata.layer: #CORE
 
+@UI.headerInfo: {
+  typeName: 'صنف',
+  typeNamePlural: 'الأصناف',
+  title: { type: #STANDARD, value: 'ItemNo' }
+}
+
+annotate view ZC_PUR_UPLOAD_I with
+{
+  @UI.hidden: true
+  UploadUuid;
+
+  @UI.lineItem:       [{ position: 10, label: 'رقم الصنف' }]
+  @UI.identification: [{ position: 10, label: 'رقم الصنف' }]
+  ItemNo;
+
+  @UI.lineItem:       [{ position: 20, label: 'المورد' }]
+  @UI.identification: [{ position: 20, label: 'المورد' }]
+  Vendor;
+
+  @UI.lineItem:       [{ position: 30, label: 'المادة' }]
+  @UI.identification: [{ position: 30, label: 'المادة' }]
+  Material;
+
+  @UI.lineItem:       [{ position: 40, label: 'الوصف' }]
+  @UI.identification: [{ position: 40, label: 'الوصف' }]
+  ShortText;
+
+  @UI.lineItem:       [{ position: 50, label: 'الكمية' }]
+  @UI.identification: [{ position: 50, label: 'الكمية' }]
+  Quantity;
+
+  @UI.lineItem:       [{ position: 60, label: 'الوحدة' }]
+  @UI.identification: [{ position: 60, label: 'الوحدة' }]
+  Unit;
+
+  @UI.lineItem:       [{ position: 70, label: 'السعر' }]
+  @UI.identification: [{ position: 70, label: 'السعر' }]
+  Price;
+
+  @UI.lineItem:       [{ position: 80, label: 'العملة' }]
+  @UI.identification: [{ position: 80, label: 'العملة' }]
+  Currency;
+
+  @UI.lineItem:       [{ position: 90, label: 'تاريخ التوريد' }]
+  @UI.identification: [{ position: 90, label: 'تاريخ التوريد' }]
+  DeliveryDate;
+
+  @UI.lineItem:       [{ position: 100, label: 'المصنع' }]
+  @UI.identification: [{ position: 100, label: 'المصنع' }]
+  Plant;
+
+  @UI.lineItem:       [{ position: 110, label: 'مكان التخزين' }]
+@UI.identification: [{ position: 110, label: 'مكان التخزين' }]
+StorageLoc;
+
+@UI.lineItem:       [{ position: 120, label: 'حالة الصنف' }]
+@UI.identification: [{ position: 120, label: 'حالة الصنف' }]
+ItemStatus;
+
+}
