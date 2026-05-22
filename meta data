@@ -1,1 +1,76 @@
+@Metadata.layer: #CORE
 
+@UI.headerInfo: {
+  typeName: 'Purchase Order Upload',
+  typeNamePlural: 'Purchase Order Uploads',
+  title: { type: #STANDARD, value: 'UploadNo' },
+  description: { type: #STANDARD, value: 'Status' }
+}
+
+annotate view ZC_PUR_UPLOAD_H with
+{
+  @UI.facet: [
+    {
+      id:       'HeaderFacet',
+      type:     #IDENTIFICATION_REFERENCE,
+      label:    'General Information',
+      position: 10
+    },
+    {
+      id:            'ItemFacet',
+      type:          #LINEITEM_REFERENCE,
+      label:         'Items',
+      position:      20,
+      targetElement: '_Items'
+    }
+  ]
+
+  @UI.hidden: true
+  UploadUuid;
+
+  @UI.lineItem: [
+    { position: 10 },
+    { position: 20, type: #FOR_ACTION, dataAction: 'uploadExcel',        label: 'Upload Excel' },
+    { position: 30, type: #FOR_ACTION, dataAction: 'submitForApproval', label: 'Submit for Approval' },
+    { position: 40, type: #FOR_ACTION, dataAction: 'approve',           label: 'Approve' },
+    { position: 50, type: #FOR_ACTION, dataAction: 'reject',            label: 'Reject' },
+    { position: 60, type: #FOR_ACTION, dataAction: 'createPO',          label: 'Create PO' }
+  ]
+  @UI.identification: [{ position: 10 }]
+  UploadNo;
+
+  @UI.lineItem:       [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  UploadedBy;
+
+  @UI.lineItem:       [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  UploadDate;
+
+  @UI.lineItem:       [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  UploadTime;
+
+  @UI.lineItem:       [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  FileName;
+
+  @UI.lineItem:       [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  Status;
+
+  @UI.identification: [{ position: 70 }]
+  Manager;
+
+  @UI.identification: [{ position: 80 }]
+  RejectReason;
+
+  @UI.identification: [{ position: 90 }]
+  PoNumber;
+
+  @UI.identification: [{ position: 95, label: 'Uploaded File' }]
+  FileContent;
+
+  @UI.hidden: true
+  MimeType;
+}
