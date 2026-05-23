@@ -29,43 +29,46 @@ annotate view ZC_PUR_UPLOAD_H with
   UploadUuid;
 
   @UI.lineItem: [
-    { position: 10 },
+    { position: 10, label: 'Upload No' },
     { position: 20, type: #FOR_ACTION, dataAction: 'uploadExcel',        label: 'Upload Excel' },
-    { position: 30, type: #FOR_ACTION, dataAction: 'submitForApproval', label: 'Submit for Approval' },
-    { position: 40, type: #FOR_ACTION, dataAction: 'approve',           label: 'Approve' },
-    { position: 50, type: #FOR_ACTION, dataAction: 'reject',            label: 'Reject' },
-    { position: 60, type: #FOR_ACTION, dataAction: 'createPO',          label: 'Create PO' }
+    { position: 30, type: #FOR_ACTION, dataAction: 'submitForApproval',  label: 'Submit for Approval' },
+    { position: 40, type: #FOR_ACTION, dataAction: 'approve',            label: 'Approve' },
+    { position: 50, type: #FOR_ACTION, dataAction: 'reject',             label: 'Reject' },
+    { position: 60, type: #FOR_ACTION, dataAction: 'createPO',           label: 'Create PO' }
   ]
-  @UI.identification: [{ position: 10 }]
+  @UI.identification: [{ position: 10, label: 'Upload No' }]
   UploadNo;
 
-  @UI.lineItem:       [{ position: 20 }]
-  @UI.identification: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20, label: 'Uploaded By' }]
+  @UI.identification: [{ position: 20, label: 'Uploaded By' }]
   UploadedBy;
 
-  @UI.lineItem:       [{ position: 30 }]
-  @UI.identification: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30, label: 'Upload Date' }]
+  @UI.identification: [{ position: 30, label: 'Upload Date' }]
   UploadDate;
 
-  @UI.lineItem:       [{ position: 40 }]
-  @UI.identification: [{ position: 40 }]
+  @UI.lineItem: [{ position: 40, label: 'Upload Time' }]
+  @UI.identification: [{ position: 40, label: 'Upload Time' }]
   UploadTime;
 
-  @UI.lineItem:       [{ position: 50 }]
-  @UI.identification: [{ position: 50 }]
+  @UI.lineItem: [{ position: 50, label: 'File Name' }]
+  @UI.identification: [{ position: 50, label: 'File Name' }]
   FileName;
 
-  @UI.lineItem:       [{ position: 60 }]
-  @UI.identification: [{ position: 60 }]
+  @UI.lineItem: [{ position: 60, label: 'Status' }]
+  @UI.identification: [{ position: 60, label: 'Status' }]
   Status;
 
-  @UI.identification: [{ position: 70 }]
+  @UI.lineItem: [{ position: 70, label: 'Manager' }]
+  @UI.identification: [{ position: 70, label: 'Manager' }]
   Manager;
 
-  @UI.identification: [{ position: 80 }]
+  @UI.lineItem: [{ position: 80, label: 'Reject Reason' }]
+  @UI.identification: [{ position: 80, label: 'Reject Reason' }]
   RejectReason;
 
-  @UI.identification: [{ position: 90 }]
+  @UI.lineItem: [{ position: 90, label: 'PO Number' }]
+  @UI.identification: [{ position: 90, label: 'PO Number' }]
   PoNumber;
 
   @UI.identification: [{ position: 95, label: 'Uploaded File' }]
